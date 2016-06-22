@@ -19,11 +19,19 @@ var fs = require('fs'),
 console.log(newlines);
 */
 
+/* Challenge 4
 var fs = require('fs');
 var newline;
 var file = fs.readFile(process.argv[2], function (err, data) {
 	newlines = data.toString().split('\n').length - 1;
 	console.log(newlines);
+});
+*/
+
+var fs = require("fs");
+
+var file = fs.readdir(process.argv[2], function(err, list) {
+	console.log(list);
 });
 
 
