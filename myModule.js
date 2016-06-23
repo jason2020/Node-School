@@ -28,11 +28,45 @@ var file = fs.readFile(process.argv[2], function (err, data) {
 });
 */
 
+
+/* Challenge 5
 var fs = require("fs");
+var path = require("path");
+
+var filter = "." + process.argv[3];
 
 var file = fs.readdir(process.argv[2], function(err, list) {
-	console.log(list);
+	for (var i = 0; i < list.length; i++) {
+		var type = path.extname(list[i]);
+		if (type === filter) {
+			console.log(list[i]);
+		}
+	}
 });
+*/
+
+
+module.exports = function(dir, filter) {
+	var fs = require("fs");
+	var path = require("path");
+
+	var filter = "." + filter;
+
+	var file = fs.readdir(dir, function(err, list) {
+		if (err) {
+			console.error('There was an error', err);
+		}
+		for (var i = 0; i < list.length; i++) {
+			var type = path.extname(list[i]);
+			if (type === filter) {
+				console.log(list[i]);
+			}
+		}
+	});
+	
+};
+
+
 
 
 
