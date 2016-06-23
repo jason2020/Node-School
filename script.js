@@ -45,26 +45,42 @@ var file = fs.readdir(process.argv[2], function(err, list) {
 });
 */
 
+/* Challenge 6
+var fs = require("fs");
+var path = require("path");
 
-module.exports = function(dir, filter) {
-	var fs = require("fs");
-	var path = require("path");
-
+module.exports = function(dir, filter, callback) {
 	var filter = "." + filter;
 
-	var file = fs.readdir(dir, function(err, list) {
+	fs.readdir(dir, function(err, list) {
+		var filteredList = [];
 		if (err) {
-			console.error('There was an error', err);
-		}
-		for (var i = 0; i < list.length; i++) {
-			var type = path.extname(list[i]);
-			if (type === filter) {
-				console.log(list[i]);
+			return callback(err)
+		} else {
+			for (var i = 0; i < list.length; i++) {
+				var type = path.extname(list[i]);
+				if (type === filter) {
+					filteredList.push(list[i]);
+				}
 			}
+	    	callback(null, filteredList);
 		}
 	});
-	
 };
+*/
+
+/* Challenge 7
+var http = require('http');
+var url = process.argv[2];
+
+http.get(url, function(res){
+	var response = res.setEncoding("utf8")
+	response.on("data", function(data){
+		console.log(data);
+	});
+});
+*/
+
 
 
 
