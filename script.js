@@ -98,12 +98,14 @@ http.get(url, function(res){
 		console.log(array.join(""));
 	});
 });
+
 */
 
+/*Challenge 9
 var http = require('http'),
 	url = process.argv[2],
 	url2 = process.argv[3],
-	url3 = process.argv[4];
+	url3 = process.argv[4],
 	array = [],
 	array2 = [],
 	array3 = [];
@@ -140,6 +142,7 @@ http.get(url3, function(res){
 		console.log(array3.join(""));
 	});
 });
+*/
 
 
 
