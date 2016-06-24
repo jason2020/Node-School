@@ -81,6 +81,69 @@ http.get(url, function(res){
 });
 */
 
+/* Challenge 8
+var http = require('http');
+var url = process.argv[2];
+var array = [];
+
+
+http.get(url, function(res){
+	var response = res.setEncoding("utf8");
+	response.on("data", function(data){
+		array.push(data);
+	});
+	response.on("error", console.error);
+	response.on("end", function() {
+		console.log(array.join("").length);
+		console.log(array.join(""));
+	});
+});
+*/
+
+var http = require('http'),
+	url = process.argv[2],
+	url2 = process.argv[3],
+	url3 = process.argv[4];
+	array = [],
+	array2 = [],
+	array3 = [];
+
+http.get(url, function(res){
+	var response = res.setEncoding("utf8");
+	response.on("data", function(data){
+		array.push(data);
+	});
+	response.on("error", console.error);
+	response.on("end", function() {
+		console.log(array.join(""));
+	});
+});
+
+http.get(url2, function(res){
+	var response = res.setEncoding("utf8");
+	response.on("data", function(data){
+		array2.push(data);
+	});
+	response.on("error", console.error);
+	response.on("end", function() {
+		console.log(array2.join(""));
+	});
+});
+
+http.get(url3, function(res){
+	var response = res.setEncoding("utf8");
+	response.on("data", function(data){
+		array3.push(data);
+	});
+	response.on("error", console.error);
+	response.on("end", function() {
+		console.log(array3.join(""));
+	});
+});
+
+
+
+
 
 
 
