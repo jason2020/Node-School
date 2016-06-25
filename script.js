@@ -145,10 +145,15 @@ http.get(url3, function(res){
 */
 
 var net = require('net');
-var port = argv[2];
-var server = net.createServer(function(){
-
+var port = process.argv[2];
+var server = net.createServer(function(socket){
+	var date = new Date();
+	var data = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + "";
+	socket.write(data);
+	socket.end();
 });
+
+server.listen(port);  
 
 
 
