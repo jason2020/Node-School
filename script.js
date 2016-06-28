@@ -165,7 +165,7 @@ var server = net.createServer(function(socket){
 	socket.end();
 });
 
-server.listen(port);  
+server.listen(port);
 */
 
 var net = require('http');
@@ -178,7 +178,6 @@ http.createServer(function(request, response) {
 });
 
 server.listen(port);
-
 
 
 
