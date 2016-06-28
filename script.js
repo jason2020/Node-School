@@ -101,7 +101,7 @@ http.get(url, function(res){
 
 */
 
-/*Challenge 9
+/* Challenge 9
 var http = require('http'),
 	url = process.argv[2],
 	url2 = process.argv[3],
@@ -144,24 +144,40 @@ http.get(url3, function(res){
 });
 */
 
+/* Challenge 10
 var net = require('net');
 var port = process.argv[2];
 var server = net.createServer(function(socket){
 	var date = new Date();
 	var month = date.getMonth() + 1;
+	var min = date.getMinutes()
 	if (month < 10) {
 		month = "0" + month;
 	}
-	var data = date.getFullYear() + "-" + month + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + "";
-	var emptyString = " ";
+	if (min == 0) {
+		min += "0";
+	} else if (min < 10) {
+		min = "0" + min;
+	}
+	var data = date.getFullYear() + "-" + month + "-" + date.getDate() + " " + date.getHours() + ":" + min + "";
 	socket.write(data);
-	socket.write(emptyString);
+	socket.write('\n');
 	socket.end();
 });
 
 server.listen(port);  
+*/
 
+var net = require('http');
+var fs = require('fs');
+var port = process.argv[2];
+var location = process.argv[3];
 
+http.createServer(function(request, response) {
+	fs.createReadStream()
+});
+
+server.listen(port);
 
 
 
